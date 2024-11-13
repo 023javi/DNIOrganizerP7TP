@@ -38,6 +38,15 @@ char letra_calculada(unsigned restoDNI) {
     return letra[restoDNI];
 }
 
+void rand_DNIs (unsigned dni[N], char letra[N]) {
+    for (int i = 0; i < N; i++) {
+        unsigned DNI = 0;
+        rand_DNI(&DNI);
+        dni[i] = DNI;
+        letra[i] = letra_calculada(resto_DNI(dni[i]));
+    }
+}
+
 int main(void)
 {
     srand(time(NULL));
