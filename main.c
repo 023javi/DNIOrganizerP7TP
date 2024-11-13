@@ -5,7 +5,8 @@
 #include <time.h>
 
 #define N 100
-
+unsigned resto_DNI(unsigned );
+char letra_calculada(unsigned );
 void rand_dig(char *);
 void rand_DNI (unsigned *);
 void rand_DNIs (unsigned [N], char [N]);
@@ -26,7 +27,10 @@ void rand_DNI(unsigned *DNI) {
         rand_dig(&dig);
         *DNI = *DNI * 10 + (dig - '0');
     }
+}
 
+unsigned resto_DNI(unsigned DNI) {
+    return DNI % 23;
 }
 
 
