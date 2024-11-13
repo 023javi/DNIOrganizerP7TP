@@ -15,7 +15,6 @@ void swap_unsigned(unsigned*, unsigned*);
 void swap_char(char*, char*);
 void bubbleSort(unsigned [N], char [N]);
 
-
 void rand_dig(char *dig) {
     *dig = rand() % 10 + '0';
 }
@@ -52,6 +51,19 @@ void rand_DNIs (unsigned dni[N], char letra[N]) {
 void print_DNIs (unsigned dni[N], char letra[N]) {
     for (int i = 0; i < N; i++) {
         printf("| %08u-%c",dni[i], letra[i]);
+    }
+}
+
+void bubbleSort(unsigned dni[N], char letra[N]) {
+    unsigned aux;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N - i - 1; j++) {
+            if (dni[j] > dni[j + 1]) {
+                aux = dni[j];
+                dni[j] = dni[j + 1];
+                dni[j + 1] = aux;
+            }
+        }
     }
 }
 int main(void)
