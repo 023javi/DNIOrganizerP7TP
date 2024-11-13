@@ -45,13 +45,20 @@ void rand_DNIs (unsigned dni[N], char letra[N]) {
         dni[i] = DNI;
         letra[i] = letra_calculada(resto_DNI(dni[i]));
     }
+
+    print_DNIs(dni, letra);
 }
 
+void print_DNIs (unsigned dni[N], char letra[N]) {
+    for (int i = 0; i < N; i++) {
+        printf("| %08u-%c",dni[i], letra[i]);
+    }
+}
 int main(void)
 {
     srand(time(NULL));
-    unsigned DNI;
-    rand_DNI(&DNI);
-    printf("DNI: %u\n", DNI);
+    unsigned DNI[N];
+    char letra[N];
+    rand_DNIs(DNI, letra);
     return 0;
 }
