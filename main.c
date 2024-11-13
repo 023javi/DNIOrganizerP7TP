@@ -54,16 +54,30 @@ void print_DNIs (unsigned dni[N], char letra[N]) {
     }
 }
 
+void swap_unsigned(unsigned* a, unsigned* b) {
+    unsigned temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void swap_char(char* a, char* b) {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 void bubbleSort(unsigned dni[N], char letra[N]) {
-    unsigned aux;
+    unsigned swap;
     for (int i = 0; i < N; i++) {
+        swap=0;
         for (int j = 0; j < N - i - 1; j++) {
             if (dni[j] > dni[j + 1]) {
-                aux = dni[j];
-                dni[j] = dni[j + 1];
-                dni[j + 1] = aux;
+                swap_unsigned(dni[j], dni[j + 1]);
+                swap_char(&letra[j], &letra[j + 1]);
+                swap = 1;
             }
         }
+        if (!swap) break;
     }
 }
 int main(void)
