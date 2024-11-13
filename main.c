@@ -13,8 +13,12 @@ void swap_unsigned(unsigned*, unsigned*);
 void swap_char(char*, char*);
 void bubbleSort(unsigned [N], char [N]);
 
+void rand_dig(char *dig) {
+    *dig = rand() % 10 + '0';
+}
+
 int main(void)
 {
-    printf("Hello, World!\n");
+    srand(time(NULL));
     return 0;
 }
