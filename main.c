@@ -72,7 +72,7 @@ void bubbleSort(unsigned dni[N], char letra[N]) {
         swap=0;
         for (int j = 0; j < N - i - 1; j++) {
             if (dni[j] > dni[j + 1]) {
-                swap_unsigned(dni[j], dni[j + 1]);
+                swap_unsigned(&dni[j], &dni[j + 1]);
                 swap_char(&letra[j], &letra[j + 1]);
                 swap = 1;
             }
@@ -85,6 +85,12 @@ int main(void)
     srand(time(NULL));
     unsigned DNI[N];
     char letra[N];
+
+    printf(" > DNIs\n");
     rand_DNIs(DNI, letra);
+    printf("\n");
+    bubbleSort(DNI, letra);
+    printf(" > DNIs ordenados\n");
+    print_DNIs (DNI, letra);
     return 0;
 }
