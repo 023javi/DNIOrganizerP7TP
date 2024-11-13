@@ -33,6 +33,10 @@ unsigned resto_DNI(unsigned DNI) {
     return DNI % 23;
 }
 
+char letra_calculada(unsigned restoDNI) {
+    char letra[] = "TRWAGMYFPDXBNJZSQVHLCKE";
+    return letra[restoDNI];
+}
 
 int main(void)
 {
