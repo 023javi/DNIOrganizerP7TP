@@ -54,16 +54,20 @@ void print_DNIs (unsigned dni[N], char letra[N]) {
     }
 }
 
-void swap_unsigned(unsigned* a, unsigned* b) {
-    unsigned temp = *a;
+void swap_unsigned(unsigned *a, unsigned *b) {
+    unsigned *temp = (unsigned *)malloc(sizeof(unsigned));
+    *temp = *a;
     *a = *b;
-    *b = temp;
+    *b = *temp;
+    free(temp);
 }
 
 void swap_char(char* a, char* b) {
-    char temp = *a;
+    char *temp = (char *)malloc(sizeof(char));
+    *temp = *a;
     *a = *b;
-    *b = temp;
+    *b = *temp;
+    free(temp);
 }
 
 void bubbleSort(unsigned dni[N], char letra[N]) {
@@ -83,8 +87,8 @@ void bubbleSort(unsigned dni[N], char letra[N]) {
 int main(void)
 {
     srand(time(NULL));
-    unsigned DNI[N];
-    char letra[N];
+    unsigned *DNI = (unsigned *)malloc(N * sizeof(unsigned));
+    char *letra = (char *)malloc(N * sizeof(char));
 
     printf(" > DNIs\n");
     rand_DNIs(DNI, letra);
